@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_livrariaebnesr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `db_livrariaebnesr`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_livrariaebnesr
@@ -18,36 +16,33 @@ USE `db_livrariaebnesr`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vendas`
+-- Table structure for table `livro`
 --
 
-DROP TABLE IF EXISTS `vendas`;
+DROP TABLE IF EXISTS `livro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vendas` (
-  `idVenda` int NOT NULL AUTO_INCREMENT,
-  `data` datetime NOT NULL,
-  `valor` decimal(8,2) NOT NULL,
-  `cupom` varchar(45) DEFAULT NULL,
-  `desconto` decimal(8,2) DEFAULT NULL,
-  `total` decimal(8,2) NOT NULL,
-  `idCliente` int NOT NULL,
-  `idFuncionario` int NOT NULL,
-  PRIMARY KEY (`idVenda`),
-  KEY `fk_Vendas_Clientes1_idx` (`idCliente`),
-  KEY `fk_Vendas_Funcionarios1_idx` (`idFuncionario`),
-  CONSTRAINT `fk_Vendas_Clientes1` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`),
-  CONSTRAINT `fk_Vendas_Funcionarios1` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionarios` (`idFuncionario`)
+CREATE TABLE `livro` (
+  `idLivro` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(100) NOT NULL,
+  `subtitulo` varchar(100) DEFAULT NULL,
+  `idEditora` int NOT NULL,
+  `preco` decimal(8,2) NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`idLivro`),
+  UNIQUE KEY `titulo_UNIQUE` (`titulo`),
+  KEY `fk_Livros_Editoras1_idx` (`idEditora`),
+  CONSTRAINT `fk_Livros_Editoras1` FOREIGN KEY (`idEditora`) REFERENCES `editora` (`idEditora`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `vendas`
+-- Dumping data for table `livro`
 --
 
-LOCK TABLES `vendas` WRITE;
-/*!40000 ALTER TABLE `vendas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vendas` ENABLE KEYS */;
+LOCK TABLES `livro` WRITE;
+/*!40000 ALTER TABLE `livro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `livro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -59,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 19:45:28
+-- Dump completed on 2022-12-30 20:32:31

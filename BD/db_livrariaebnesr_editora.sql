@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_livrariaebnesr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `db_livrariaebnesr`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_livrariaebnesr
@@ -18,29 +16,27 @@ USE `db_livrariaebnesr`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `funcionarios`
+-- Table structure for table `editora`
 --
 
-DROP TABLE IF EXISTS `funcionarios`;
+DROP TABLE IF EXISTS `editora`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `funcionarios` (
-  `idFuncionario` int NOT NULL AUTO_INCREMENT,
-  `login` varchar(45) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `funcao` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idFuncionario`),
-  UNIQUE KEY `login_UNIQUE` (`login`)
+CREATE TABLE `editora` (
+  `idEditora` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `local` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`idEditora`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `funcionarios`
+-- Dumping data for table `editora`
 --
 
-LOCK TABLES `funcionarios` WRITE;
-/*!40000 ALTER TABLE `funcionarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `funcionarios` ENABLE KEYS */;
+LOCK TABLES `editora` WRITE;
+/*!40000 ALTER TABLE `editora` DISABLE KEYS */;
+/*!40000 ALTER TABLE `editora` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 19:45:29
+-- Dump completed on 2022-12-30 20:32:31

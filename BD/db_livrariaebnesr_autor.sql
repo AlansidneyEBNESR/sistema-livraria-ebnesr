@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `db_livrariaebnesr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `db_livrariaebnesr`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_livrariaebnesr
@@ -18,29 +16,27 @@ USE `db_livrariaebnesr`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `autores_livros`
+-- Table structure for table `autor`
 --
 
-DROP TABLE IF EXISTS `autores_livros`;
+DROP TABLE IF EXISTS `autor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `autores_livros` (
-  `idAutor` int NOT NULL,
-  `idLivro` int NOT NULL,
-  KEY `fk_Autores_has_Livros_Livros1_idx` (`idLivro`),
-  KEY `fk_Autores_has_Livros_Autores_idx` (`idAutor`),
-  CONSTRAINT `fk_Autores_has_Livros_Autores` FOREIGN KEY (`idAutor`) REFERENCES `autores` (`idAutor`),
-  CONSTRAINT `fk_Autores_has_Livros_Livros1` FOREIGN KEY (`idLivro`) REFERENCES `livros` (`idLivro`)
+CREATE TABLE `autor` (
+  `idAutor` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `sobrenome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idAutor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `autores_livros`
+-- Dumping data for table `autor`
 --
 
-LOCK TABLES `autores_livros` WRITE;
-/*!40000 ALTER TABLE `autores_livros` DISABLE KEYS */;
-/*!40000 ALTER TABLE `autores_livros` ENABLE KEYS */;
+LOCK TABLES `autor` WRITE;
+/*!40000 ALTER TABLE `autor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `autor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 19:45:28
+-- Dump completed on 2022-12-30 20:32:31
