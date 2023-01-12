@@ -25,17 +25,17 @@ DROP TABLE IF EXISTS `venda`;
 CREATE TABLE `venda` (
   `idVenda` int NOT NULL AUTO_INCREMENT,
   `data` datetime NOT NULL,
-  `valor` decimal(8,2) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
   `cupom` varchar(45) DEFAULT NULL,
-  `desconto` decimal(8,2) DEFAULT NULL,
-  `total` decimal(8,2) NOT NULL,
-  `idCliente` int DEFAULT NULL,
-  `idFuncionario` int NOT NULL,
+  `desconto` decimal(10,2) DEFAULT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `Cliente_idCliente` int NOT NULL,
+  `Vendedor_idVendedor` int NOT NULL,
   PRIMARY KEY (`idVenda`),
-  KEY `fk_Vendas_Clientes1_idx` (`idCliente`),
-  KEY `fk_Vendas_Funcionarios1_idx` (`idFuncionario`),
-  CONSTRAINT `fk_Vendas_Clientes1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
-  CONSTRAINT `fk_Vendas_Funcionarios1` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionario` (`idFuncionario`)
+  KEY `fk_Venda_Cliente_idx` (`Cliente_idCliente`),
+  KEY `fk_Venda_Vendedor1_idx` (`Vendedor_idVendedor`),
+  CONSTRAINT `fk_Venda_Cliente` FOREIGN KEY (`Cliente_idCliente`) REFERENCES `cliente` (`idCliente`),
+  CONSTRAINT `fk_Venda_Vendedor1` FOREIGN KEY (`Vendedor_idVendedor`) REFERENCES `vendedor` (`idVendedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 20:32:31
+-- Dump completed on 2023-01-11 21:50:16

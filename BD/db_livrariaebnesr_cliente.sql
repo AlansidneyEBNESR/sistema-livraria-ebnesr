@@ -26,8 +26,7 @@ CREATE TABLE `cliente` (
   `idCliente` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(20) DEFAULT NULL,
-  `infoAdicional` text,
+  `telefone` varchar(13) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   UNIQUE KEY `nome_UNIQUE` (`nome`),
   UNIQUE KEY `email_UNIQUE` (`email`),
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 20:32:31
+-- Dump completed on 2023-01-11 21:50:16

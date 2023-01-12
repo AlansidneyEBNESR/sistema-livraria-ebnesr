@@ -26,13 +26,12 @@ CREATE TABLE `livro` (
   `idLivro` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `subtitulo` varchar(100) DEFAULT NULL,
-  `idEditora` int NOT NULL,
-  `preco` decimal(8,2) NOT NULL,
+  `autor` varchar(100) NOT NULL,
+  `editora` varchar(45) NOT NULL,
   `quantidade` int NOT NULL,
+  `preco` decimal(8,2) NOT NULL,
   PRIMARY KEY (`idLivro`),
-  UNIQUE KEY `titulo_UNIQUE` (`titulo`),
-  KEY `fk_Livros_Editoras1_idx` (`idEditora`),
-  CONSTRAINT `fk_Livros_Editoras1` FOREIGN KEY (`idEditora`) REFERENCES `editora` (`idEditora`)
+  UNIQUE KEY `titulo_UNIQUE` (`titulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-30 20:32:31
+-- Dump completed on 2023-01-11 21:50:15
